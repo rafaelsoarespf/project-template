@@ -14,6 +14,12 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*main  -----------------------------------------------------*/
+main{
+  width: 100%;
+  padding: 1.2rem;
+}
+
 /*typography ------------------------------------------------*/
 h1{
   font: var(--font-title);
@@ -34,6 +40,147 @@ main h1, main h2, main p{
   margin-bottom: 1rem;
 }
 
+/*strong ----------------------------------------------------*/
+strong{
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/*abbr ------------------------------------------------------*/
+abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+  text-underline-offset: 3px;
+  color: var(--color-accent);
+}
+
+/*mark ------------------------------------------------------*/
+mark {
+  background-color: color-mix(in srgb, var(--color-accent) 40%, rgba(255, 255, 255, 0) 60%);
+  color: var(--color-on-accent);  
+  padding: 0.1em 0.25em;
+  border-radius: 6px;
+}
+
+/*a ---------------------------------------------------------*/
+a{
+  cursor: pointer;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+/*button ----------------------------------------------------*/
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--font-text);
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+button:active { 
+    transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/*code ------------------------------------------------------*/
+code {
+  background: color-mix(in srgb,var(--color-accent) 25%,rgba(255, 255, 255, 0.1));
+  color: var(--color-accent);
+  backdrop-filter: var(--blur);
+  padding: 0.2em 0.45em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  font-family: "Fira Code", monospace;
+}
+
+/* code block */
+pre {
+  background: color-mix(in srgb,var(--color-accent) 30%,rgba(128, 128, 128, 0.3));
+  backdrop-filter: var(--blur);
+  color: color-mix(in srgb,var(--color-on-accent) 80%,rgba(248, 248, 248, 0.5));
+  padding: 1.25rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+pre code {
+  display: block;
+  backdrop-filter: none;
+  white-space: pre;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+/*q ---------------------------------------------------------*/
+q {
+  color: color-mix(in srgb,var(--color-accent) 70%,rgba(68, 68, 68, 0.01));
+  font-style: italic;
+  position: relative;
+}
+
+/*blockquote ------------------------------------------------*/
+blockquote {
+  position: relative;
+  padding: 1rem 1.2rem;
+  background: var(--color-surface-1);
+  border-left: 6px solid var(--color-accent);
+  border-radius: 12px;
+  font-style: italic;
+  box-shadow: var(--shadow-md);
+}
+
+blockquote footer {
+  margin-top: 0.75rem;
+  font: var(--font-text-sm);
+  font-style: normal;
+  opacity: 0.8;
+}
+
+/*label -----------------------------------------------------*/
+label{
+  display: inline-block;
+  cursor: pointer;
+}
+
+label:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
 /*input, textarea, select -----------------------------------*/
 input, textarea, select {
@@ -55,43 +202,130 @@ input:hover,textarea:hover,select:hover {
   border-color: var(--color-accent);
 }
 
-/*a ---------------------------------------------------------*/
-a{
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+input:disabled,textarea:disabled,select:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+  box-shadow: none;
+  border-color: var(--color-border);
 }
 
-a:hover {
+input:disabled:hover,textarea:disabled:hover,select:disabled:hover {
+  transform: none;
+  border-color: var(--color-border);
+}
+
+/*placeholver -----------------------------------------------*/
+input::placeholder, textarea::placeholder {
   opacity: 0.9;
-  transform: translateY(-2px);
 }
 
-/*button ----------------------------------------------------*/
-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font: var(--font-text);
-  color: var(--color-on-accent);
+/*checkbox --------------------------------------------------*/
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.32rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--color-on-accent);
+  border-bottom: 2px solid var(--color-on-accent);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+input[type="checkbox"]:checked {
   background: var(--color-accent);
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-accent);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: rotate(45deg) scale(1);
+}
+
+input[type="checkbox"]:checked:disabled {
+  background: color-mix(in srgb,var(--color-accent) 55%,gray);
+}
+
+/*radio -----------------------------------------------------*/
+input[type="radio"] {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-surface-2);
   cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+input[type="radio"]:hover {
+  border-color: var(--color-accent);
 }
 
-button:active { 
-    transform: scale(0.98);
+input[type="radio"]:checked {
+  border-color: var(--color-accent);
+  background-image: radial-gradient(circle,var(--color-accent) 45%,transparent 46%);
+}
+
+input[type="radio"]:checked:disabled {
+  background: color-mix(in srgb,var(--color-accent) 55%,gray);
+}
+
+/*table -----------------------------------------------------*/
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+thead {
+  background: var(--color-surface-2);
+}
+
+th {
+  font-size: 0.9rem;
+  padding: 18px 24px;
+  text-align: left;
+  letter-spacing: 0.08em;
+  color: var(--color-subtitle);
+  border-bottom: 1px solid var(--color-border);
+}
+
+td {
+  padding: 18px 24px;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background: var(--color-surface-2);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /*scrollbar -------------------------------------------------*/
@@ -117,12 +351,14 @@ html {
 
 /*quando um elemento estiver em foco*/
 :focus-visible, input:focus,textarea:focus,select:focus, button:focus-visible {
-  outline: 1px solid var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
   outline-offset: 4px;
+  outline: none;
 }
 
 /*quando um texto for selecionado*/
 ::selection {
   background: var(--color-accent);
-  color: white;
+  color: var(--color-on-accent);
 }
+

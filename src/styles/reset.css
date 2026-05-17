@@ -15,6 +15,10 @@ img,picture,video,canvas,svg {
   max-width: 100%;
 }
 
+form {
+  all: unset;
+}
+
 button,input,textarea,select {
   font: inherit;
 }
