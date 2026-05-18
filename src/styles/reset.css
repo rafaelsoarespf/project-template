@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 ul,ol {
   list-style: none;
 }
@@ -13,10 +17,6 @@ ul,ol {
 img,picture,video,canvas,svg {
   display: block;
   max-width: 100%;
-}
-
-form {
-  all: unset;
 }
 
 button,input,textarea,select {

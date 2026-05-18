@@ -350,17 +350,17 @@ html {
 
 /* Accessibility -------------------------------------------*/
 
-/*rolagem suave para âncoras internas*/
+/* smooth scrolling for internal anchors */
 @media (prefers-reduced-motion: no-preference) {html {scroll-behavior: smooth;}}
 
-/*quando um elemento estiver em foco*/
+/* focused element state */
 :focus-visible, input:focus,textarea:focus,select:focus, button:focus-visible {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
   outline-offset: 4px;
   outline: none;
 }
 
-/*quando um texto for selecionado*/
+/* selected text */
 ::selection {
   background: var(--color-accent);
   color: var(--color-on-accent);
