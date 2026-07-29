@@ -1,4 +1,9 @@
-//Ex:
+//Example:
 //import { initNameFunction } from './components/name-component.js';
 
-//initNameFunction();
+// init functions ====================================================
+//document.addEventListener("DOMContentLoaded", init);
+
+//function init(): void {
+    //initNameFunction();
+//}
